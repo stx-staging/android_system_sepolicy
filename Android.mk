@@ -262,7 +262,7 @@ LOCAL_MODULE := selinux_policy_system
 # divergence between Treble and non-Treble devices.
 LOCAL_REQUIRED_MODULES += \
     plat_mapping_file \
-    $(addprefix plat_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
+    $(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
     $(addsuffix .compat.cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS)) \
     plat_sepolicy.cil \
     plat_sepolicy_and_mapping.sha256 \
@@ -369,10 +369,7 @@ LOCAL_REQUIRED_MODULES += system_ext_sepolicy.cil
 endif
 
 ifdef HAS_SYSTEM_EXT_PUBLIC_SEPOLICY
-LOCAL_REQUIRED_MODULES += \
-    system_ext_mapping_file \
-    $(addprefix system_ext_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
-
+LOCAL_REQUIRED_MODULES += system_ext_mapping_file
 endif
 
 ifdef HAS_SYSTEM_EXT_SEPOLICY_DIR
@@ -395,10 +392,7 @@ LOCAL_REQUIRED_MODULES += product_sepolicy.cil
 endif
 
 ifdef HAS_PRODUCT_PUBLIC_SEPOLICY
-LOCAL_REQUIRED_MODULES += \
-    product_mapping_file \
-    $(addprefix product_,$(addsuffix .cil,$(PLATFORM_SEPOLICY_COMPAT_VERSIONS))) \
-
+LOCAL_REQUIRED_MODULES += product_mapping_file
 endif
 
 ifdef HAS_PRODUCT_SEPOLICY_DIR
